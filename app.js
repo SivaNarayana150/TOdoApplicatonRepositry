@@ -94,19 +94,14 @@ app.get("/todos/", async (request, response) => {
 
 //API 2
 app.get("/todos/:todoId", async (request, response) => {
-  
   const { todoId } = request.params;
-  
 
-  
-      getTodoQuery = `
+  getTodoQuery = `
             SELECT *
             FROM
             todo
             WHERE
             id=${todoId} ;`;
-
-     
 
   const data = await db.all(getTodoQuery);
   response.send(data);
@@ -115,7 +110,6 @@ app.get("/todos/:todoId", async (request, response) => {
 // API 3
 
 app.post("/todos/", async (request, response) => {
-  
   const { id, todo, priority, status } = request.body;
   const createQuery = `
     INSERT INTO todo 
@@ -172,7 +166,7 @@ app.put("/todos/:todoId", async (request, response) => {
 });
 
 app.delete("todos/:todoId", async (request, response) => {
-  const { todId } = request.params;
+  const { todoId } = request.params;
   const deleteTodoQuery = `
     DELETE * FROM todo WHERE 
     id= ${todoId};`;
@@ -180,4 +174,3 @@ app.delete("todos/:todoId", async (request, response) => {
   response.send("Todo Deleted");
 });
 module.exports = app;
-;
