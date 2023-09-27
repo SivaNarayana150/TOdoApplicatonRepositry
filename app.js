@@ -4,7 +4,7 @@ const path = require("path");
 const sqlite3 = require("sqlite3");
 const { open } = require("sqlite");
 
-const dbPath = path.join(__dirname, "todoapplication.db");
+const dbPath = path.join(__dirname, "todoApplication.db");
 const app = express();
 
 app.use(express.json());
